@@ -1,11 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OfficeScripter.Abstractions\OfficeScripter.Abstractions.csproj" />
     <ProjectReference Include="..\OfficeScripter.Domain\OfficeScripter.Domain.csproj" />
   </ItemGroup>
 
