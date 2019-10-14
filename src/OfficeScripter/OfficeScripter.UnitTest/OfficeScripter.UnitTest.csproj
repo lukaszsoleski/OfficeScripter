@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="28.3.2" />
     <PackageReference Include="FluentAssertions" Version="5.9.0" />
     <PackageReference Include="FluentAssertions.Analyzers" Version="0.11.4" />
     <PackageReference Include="Moq" Version="4.13.0" />
     <PackageReference Include="Moq.AutoMock" Version="1.2.0.120" />
+    <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,6 +21,10 @@
     <ProjectReference Include="..\OfficeScripter.Application\OfficeScripter.Application.csproj" />
     <ProjectReference Include="..\OfficeScripter.Domain\OfficeScripter.Domain.csproj" />
     <ProjectReference Include="..\OfficeScripter.WPFClient\OfficeScripter.WPFClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TimeSummary\Helpers\" />
   </ItemGroup>
 
 </Project>

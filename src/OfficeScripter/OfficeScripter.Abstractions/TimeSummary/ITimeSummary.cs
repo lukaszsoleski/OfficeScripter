@@ -12,7 +12,7 @@ namespace OfficeScripter.Abstractions.TimeSummary
     {
       int Goal(ITimeBlock timePeriod);
 
-      IEnumerable<TimeSummary> GetTimeSummary(IEnumerable<TimeSummaryEvent> events, ITimeBlock timeBlock, TimePeriodEnum timePeriod);
+      TimeSummary GetTimeSummary(IEnumerable<TimeSummaryEvent> events, ITimeBlock timeBlock, TimePeriodTypeEnum timePeriod);
       
     }
 }

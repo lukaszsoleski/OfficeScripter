@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OfficeScripter.Domain
 {
-    public enum TimePeriodEnum
+    public enum TimePeriodTypeEnum
     {
         Day,
         Month
