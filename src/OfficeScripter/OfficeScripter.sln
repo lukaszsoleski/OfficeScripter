@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.WPFClient", "OfficeScripter.WPFClient\OfficeScripter.WPFClient.csproj", "{BED1936B-9B41-4E45-90AD-6DE2B795ECAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.WPFClient", "OfficeScripter.WPFClient\OfficeScripter.WPFClient.csproj", "{BED1936B-9B41-4E45-90AD-6DE2B795ECAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.Domain", "OfficeScripter.Domain\OfficeScripter.Domain.csproj", "{5953DDFB-DAFE-41B8-81A1-65475F415914}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.Domain", "OfficeScripter.Domain\OfficeScripter.Domain.csproj", "{5953DDFB-DAFE-41B8-81A1-65475F415914}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7DA0458B-FC7A-41ED-8A78-C8FFFD395D19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.UnitTest", "OfficeScripter.UnitTest\OfficeScripter.UnitTest.csproj", "{E8DB1EC1-EC1A-4296-83C3-D47DBC07B406}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.UnitTest", "OfficeScripter.UnitTest\OfficeScripter.UnitTest.csproj", "{E8DB1EC1-EC1A-4296-83C3-D47DBC07B406}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2F021D88-3F93-4B46-8C3A-C11B1F47C8B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{79201D74-FA10-427E-826F-DB7B53C072AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.Application", "OfficeScripter.Application\OfficeScripter.Application.csproj", "{45636F22-AAF3-4951-9F34-88D380AED81F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.Application", "OfficeScripter.Application\OfficeScripter.Application.csproj", "{45636F22-AAF3-4951-9F34-88D380AED81F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BDCF9F6E-0D24-4118-969D-642B4BCDDC13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.Abstractions", "OfficeScripter.Abstractions\OfficeScripter.Abstractions.csproj", "{56214938-72FC-4092-9F2B-58AEEE413229}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.Abstractions", "OfficeScripter.Abstractions\OfficeScripter.Abstractions.csproj", "{56214938-72FC-4092-9F2B-58AEEE413229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.Persistance", "OfficeScripter.Persistance\OfficeScripter.Persistance.csproj", "{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{56214938-72FC-4092-9F2B-58AEEE413229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56214938-72FC-4092-9F2B-58AEEE413229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56214938-72FC-4092-9F2B-58AEEE413229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +62,7 @@ Global
 		{E8DB1EC1-EC1A-4296-83C3-D47DBC07B406} = {7DA0458B-FC7A-41ED-8A78-C8FFFD395D19}
 		{45636F22-AAF3-4951-9F34-88D380AED81F} = {79201D74-FA10-427E-826F-DB7B53C072AD}
 		{56214938-72FC-4092-9F2B-58AEEE413229} = {79201D74-FA10-427E-826F-DB7B53C072AD}
+		{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4} = {BDCF9F6E-0D24-4118-969D-642B4BCDDC13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0B42883-0749-40F6-B678-E6584FFFA662}
