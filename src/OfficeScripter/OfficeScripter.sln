@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.UnitTest", "OfficeScripter.UnitTest\OfficeScripter.UnitTest.csproj", "{E8DB1EC1-EC1A-4296-83C3-D47DBC07B406}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2F021D88-3F93-4B46-8C3A-C11B1F47C8B1}"
+	ProjectSection(SolutionItems) = preProject
+		OfficeScripter.Application\TimeSummary\TimeSummaryInteractor.cs = OfficeScripter.Application\TimeSummary\TimeSummaryInteractor.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{79201D74-FA10-427E-826F-DB7B53C072AD}"
 EndProject
@@ -21,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.Abstractions", "OfficeScripter.Abstractions\OfficeScripter.Abstractions.csproj", "{56214938-72FC-4092-9F2B-58AEEE413229}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.Persistance", "OfficeScripter.Persistance\OfficeScripter.Persistance.csproj", "{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.Persistance", "OfficeScripter.Persistance\OfficeScripter.Persistance.csproj", "{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

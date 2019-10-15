@@ -17,25 +17,42 @@ namespace OfficeScripter.UnitTest.TimeSummary
 {
     public class TimeSummaryInteractorTests
     {
-        // TODO:
-        // Add more events 
-        // Create events in diffrent time blocks then required
 
         [Fact]
         public void GetTimeSummary_SumWorkTimeInTheGivenTimeBlock()
         {
+            #region Arrange
+            // Create automocker container
             var mocker = new AutoMocker();
-            var hoursToAdd = 8;
+            // Set start point
             var startDate = new DateTime(2019, 10, 2, 8, 0, 0);
-
-            var timeBlock = new TimeBlock();
-            var interactor = mocker.CreateInstance<TimeSummaryInteractor>();
-            var timePeriod = TimePeriodTypeEnum.Month;
+            // Set time block for the calculation
+            var timeBlock = new TimeBlock(startDate, startDate.AddDays(2));
+            // Generate sample events. It is important to keep this method constant.
             var events = SampleTestData(startDate);
-            // act
-            var summary = interactor.GetTimeSummary(events, timeBlock, timePeriod);
-            // assert
+            #endregion
+            #region Act
+            var interactor = mocker.CreateInstance<TimeSummaryInteractor>();
+            var summary = interactor.GetTimeSummary(events, timeBlock);
+            #endregion
+            #region Assert
             summary.TimeSpan.TotalHours.Should().Be(8);
+            #endregion
+        }
+
+        [Fact]
+        public void GetTimeSummary_IgnoreEventsOutsideOfAGivenTimeBlock()
+        {
+
+        }
+        [Theory]
+        [InlineData(EventTypeEnum.WorkStart)]
+        [InlineData(EventTypeEnum.WorkEnd)]
+        [InlineData(EventTypeEnum.WorkBreakEnd)]
+        [InlineData(EventTypeEnum.WorkBreakStart)]
+        void GetTimeSummary_EventIsMissing_LogCritical(EventTypeEnum eventType)
+        {
+
         }
         /// <summary>
         /// Sample data for testing purposes.
