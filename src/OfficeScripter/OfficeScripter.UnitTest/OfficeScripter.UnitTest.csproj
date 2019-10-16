@@ -23,8 +23,4 @@
     <ProjectReference Include="..\OfficeScripter.WPFClient\OfficeScripter.WPFClient.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="TimeSummary\Helpers\" />
-  </ItemGroup>
-
 </Project>
