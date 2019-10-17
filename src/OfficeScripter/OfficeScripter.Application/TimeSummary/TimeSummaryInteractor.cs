@@ -16,9 +16,9 @@ namespace OfficeScripter.Application.TimeSummary
     public class TimeSummaryInteractor : ITimeSummary
     {
         private readonly ILogger<TimeSummaryInteractor> logger;
-        private readonly IConfiguration configuration;
+        private readonly TimeSummaryConfig configuration;
 
-        public TimeSummaryInteractor(ILogger<TimeSummaryInteractor> logger, IConfiguration configuration) 
+        public TimeSummaryInteractor(ILogger<TimeSummaryInteractor> logger, TimeSummaryConfig configuration) 
         {
             this.logger = logger;
             this.configuration = configuration;
@@ -82,9 +82,7 @@ namespace OfficeScripter.Application.TimeSummary
             }
             if(englishLesson != null)
             {
-                var enLesson = TimeSpan.Parse( configuration["timeSummarySettings:enLessonTime"] );
-
-                workTime -= enLesson;
+                workTime -= configuration.EnLessonTime;
             }
 
             return workTime;

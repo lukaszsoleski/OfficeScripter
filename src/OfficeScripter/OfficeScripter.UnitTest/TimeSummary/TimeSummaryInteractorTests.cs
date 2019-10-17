@@ -76,11 +76,13 @@ namespace OfficeScripter.UnitTest.TimeSummary
         [InlineData(EventTypeEnum.WorkEnd)]
         [InlineData(EventTypeEnum.WorkBreakEnd)]
         [InlineData(EventTypeEnum.WorkBreakStart)]
-        void GetTimeSummary_EventIsMissing_LogCritical(EventTypeEnum eventType)
+        public void GetTimeSummary_EventIsMissing_LogCritical(EventTypeEnum eventType)
         {
             #region Arrange
             // Create automocker container
             var mocker = new AutoMocker();
+            // Set the time for English lessons
+            mocker.Use(new TimeSummaryConfig() { EnLessonTime = new TimeSpan(1, 30, 0) });
             // Set start point
             var startDateTime = SampleData.EventsStartDate;
             // Set time block for the calculation
@@ -93,13 +95,13 @@ namespace OfficeScripter.UnitTest.TimeSummary
             eventToBeModified.EventType = EventTypeEnum.Unknown;
 
             #endregion
+
             #region Act
             var interactor = mocker.CreateInstance<TimeSummaryInteractor>();
             var summary = interactor.GetTimeSummary(events, timeBlock);
             #endregion
             // verify that critical message was logged
-            mocker.GetMock<ILogger<TimeSummaryInteractor>>().
-                Verify(x => x.LogCritical(It.IsAny<string>()), Times.Once);
+            mocker.Verify<ILogger<TimeSummaryInteractor>>(x => x.Log(LogLevel.Critical, It.IsAny<string>()), Times.AtLeastOnce);
 
             //  check if the method adds up only one of the two days
             summary.TotalHours.Should().BeLessThan(8);
