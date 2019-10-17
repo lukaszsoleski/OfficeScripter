@@ -24,7 +24,7 @@ namespace OfficeScripter.Domain.TimeSummary
         /// <summary>
         /// Checks if the event is a known type.
         /// </summary>
-        public bool HasEvent => !(EventType == EventTypeEnum.Unknown && ProjectType == ProjectTypeEnum.Unknown);
+        public bool HasEvent => EventType != EventTypeEnum.Unknown && ProjectType != ProjectTypeEnum.Unknown;
         public override string ToString()
         {
             return $"Event {EventType} has been registered at {CreatedAt} in the [{ProjectType}] project.";

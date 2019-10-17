@@ -40,7 +40,7 @@ namespace OfficeScripter.UnitTest.TimeSummary
             var summary = interactor.GetTimeSummary(events, timeBlock);
             #endregion
             #region Assert
-            summary.TimeSpan.TotalMinutes.Should()
+            summary.TotalMinutes.Should()
                 .Be(TimeSpan.FromHours(11).Add(TimeSpan.FromMinutes(15)).TotalMinutes);
 
             #endregion
@@ -64,7 +64,7 @@ namespace OfficeScripter.UnitTest.TimeSummary
             var summary = interactor.GetTimeSummary(events, singleDayTimeBlock);
             #endregion
             #region Assert
-            summary.TimeSpan.TotalMinutes.Should()
+            summary.TotalMinutes.Should()
                 .Be(new TimeSpan(5,30,0).TotalMinutes);
 
             #endregion
@@ -102,7 +102,7 @@ namespace OfficeScripter.UnitTest.TimeSummary
                 Verify(x => x.LogCritical(It.IsAny<string>()), Times.Once);
 
             //  check if the method adds up only one of the two days
-            summary.TimeSpan.TotalHours.Should().BeLessThan(8);
+            summary.TotalHours.Should().BeLessThan(8);
         }
 
     }
