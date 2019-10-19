@@ -37,7 +37,7 @@ namespace OfficeScripter.Application.TimeSummary
             {
                 var daySummary = SumDayEvents(dayEvents.Value);
 
-                timeSummary.Add(daySummary);
+                timeSummary += daySummary;
             }
             return timeSummary;
         }
@@ -70,16 +70,14 @@ namespace OfficeScripter.Application.TimeSummary
         {
             var workTime = SumActivityTime(dayEvents, EventTypeEnum.WorkStart, EventTypeEnum.WorkEnd);
 
+            if (workTime == TimeSpan.Zero) return TimeSpan.Zero;
+
             var breakTime = SumActivityTime(dayEvents, EventTypeEnum.WorkBreakStart, EventTypeEnum.WorkBreakEnd);
+
+            workTime -= breakTime;
 
             var englishLesson = dayEvents.FirstOrDefault(x => x.ProjectType == ProjectTypeEnum.EnglishLesson);
 
-            if (workTime == null) return TimeSpan.Zero;
-
-            if(breakTime != null || breakTime != TimeSpan.Zero)
-            {
-                workTime -= breakTime;
-            }
             if(englishLesson != null)
             {
                 workTime -= configuration.EnLessonTime;

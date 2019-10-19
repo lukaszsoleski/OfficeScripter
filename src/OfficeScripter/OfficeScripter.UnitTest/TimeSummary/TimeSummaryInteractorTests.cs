@@ -30,6 +30,9 @@ namespace OfficeScripter.UnitTest.TimeSummary
             var mocker = new AutoMocker();
             // Set start point
             var startDate = SampleData.EventsStartDate;
+            // Set the time for English lessons
+            mocker.Use(new TimeSummaryConfig() { EnLessonTime = new TimeSpan(1, 30, 0) });
+
             // Set time block for the calculation
             var timeBlock = new TimeBlock(startDate, startDate.AddDays(2));
             // Generate sample events. It is important to keep this method constant.
@@ -54,8 +57,11 @@ namespace OfficeScripter.UnitTest.TimeSummary
             var mocker = new AutoMocker();
             // Set start point
             var dateTime = SampleData.EventsStartDate;
+            // Set the time for English lessons
+            mocker.Use(new TimeSummaryConfig() { EnLessonTime = new TimeSpan(1, 30, 0) });
+
             // Set time block for the calculation
-            var singleDayTimeBlock = new TimeBlock(dateTime, dateTime);
+            var singleDayTimeBlock = new TimeBlock(dateTime, dateTime.AddHours(12));
             // Generate sample events. It is important to keep this method constant.
             var events = SampleData.Events;
             #endregion
@@ -81,9 +87,7 @@ namespace OfficeScripter.UnitTest.TimeSummary
             #region Arrange
             // Create automocker container
             var mocker = new AutoMocker();
-            // Set the time for English lessons
-            mocker.Use(new TimeSummaryConfig() { EnLessonTime = new TimeSpan(1, 30, 0) });
-
+           
             // Set start point
             var startDateTime = SampleData.EventsStartDate;
             // Set time block for the calculation
@@ -109,8 +113,6 @@ namespace OfficeScripter.UnitTest.TimeSummary
                   It.IsAny<It.IsAnyType>(),
                   It.IsAny<Exception>(),
                   (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()), Times.AtLeastOnce);
-            //  check if the method adds up only one of the two days
-            //summary.TotalHours.Should().BeLessThan(8);
         }
 
     }

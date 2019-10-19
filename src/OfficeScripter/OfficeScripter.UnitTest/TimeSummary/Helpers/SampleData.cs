@@ -61,7 +61,7 @@ namespace OfficeScripter.UnitTest.TimeSummary.Helpers
                     EventType = EventTypeEnum.WorkEnd,
                     ProjectType = ProjectTypeEnum.Unknown
                 },
-                
+                // 5:30 + 5:45
                 // sum ~= 11h15min               
             };
     }
