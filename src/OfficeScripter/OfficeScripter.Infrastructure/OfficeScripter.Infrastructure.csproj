@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExcelDataReader.Mapping" Version="1.2.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OfficeScripter.Abstractions\OfficeScripter.Abstractions.csproj" />
+    <ProjectReference Include="..\OfficeScripter.Application\OfficeScripter.Application.csproj" />
+    <ProjectReference Include="..\OfficeScripter.Domain\OfficeScripter.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

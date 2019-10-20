@@ -23,6 +23,7 @@ namespace OfficeScripter.Application.TimeSummary
             this.logger = logger;
             this.configuration = configuration;
         }
+        #region GetTimeSummary
         /// <summary>
         /// Time summary for the events grouped by the given time block.
         /// </summary>
@@ -85,7 +86,6 @@ namespace OfficeScripter.Application.TimeSummary
 
             return workTime;
         }
-     
         private TimeSpan SumActivityTime(List<TimeSummaryEvent> events, EventTypeEnum start, EventTypeEnum end)
         {
             var processStart = FindSingleEvent(start, events);
@@ -109,6 +109,20 @@ namespace OfficeScripter.Application.TimeSummary
                 return null;
             }
             return tsEvents.Single();
+        }
+        #endregion
+
+        public Dictionary<DateTime, TimeSpan> GetDailySummary(IEnumerable<TimeSummaryEvent> events, ITimePeriod timePeriod)
+        {
+            var dailySummary = new Dictionary<DateTime, TimeSpan>();
+            
+            foreach (var dayEvents in GetDailyEvents(events, timePeriod))
+            {
+                var daySummary = SumDayEvents(dayEvents.Value);
+               
+                dailySummary.Add(dayEvents.Key, daySummary);
+            }
+            return dailySummary;
         }
         /// <summary>
         /// Get work hours for the given time block.

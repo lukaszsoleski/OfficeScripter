@@ -13,6 +13,6 @@ namespace OfficeScripter.Abstractions.TimeSummary
       int Goal(ITimeBlock timePeriod);
 
       TimeSpan GetTimeSummary(IEnumerable<TimeSummaryEvent> events, ITimePeriod timePeriod);
-      
+      Dictionary<DateTime, TimeSpan> GetDailySummary(IEnumerable<TimeSummaryEvent> events, ITimePeriod timePeriod);
     }
 }

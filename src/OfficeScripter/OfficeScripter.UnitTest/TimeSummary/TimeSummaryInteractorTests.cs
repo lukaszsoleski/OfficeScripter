@@ -74,8 +74,6 @@ namespace OfficeScripter.UnitTest.TimeSummary
                 .Be(new TimeSpan(5,30,0).TotalMinutes);
 
             #endregion
-
-
         }
         [Theory]
         [InlineData(EventTypeEnum.WorkStart)]
@@ -114,6 +112,5 @@ namespace OfficeScripter.UnitTest.TimeSummary
                   It.IsAny<Exception>(),
                   (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()), Times.AtLeastOnce);
         }
-
     }
 }
