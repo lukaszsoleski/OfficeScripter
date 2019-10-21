@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OfficeScripter.Domain.TimeSummary;
 using System;
 using System.IO;
 using System.Text;
@@ -35,12 +36,15 @@ namespace OfficeScripter.TimeSummary
             // IMPORTANT! Register our application entry point
             services.AddTransient<Startup>();
             var config = LoadConfiguration();
+
+            services.Configure<TimeSummaryConfig>(config.GetSection("TimeSummary"));
+
             services.AddLogging(logging =>
             {
                 logging.AddConfiguration(config.GetSection("Logging"));
                 logging.AddConsole();
             });
-
+            
             return services;
         }
     }
