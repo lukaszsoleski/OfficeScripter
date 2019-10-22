@@ -23,9 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.Abstractions
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.Persistance", "OfficeScripter.Persistance\OfficeScripter.Persistance.csproj", "{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.Infrastructure", "OfficeScripter.Infrastructure\OfficeScripter.Infrastructure.csproj", "{E4802137-FBA8-4F9D-B863-41F4B19BC7FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.Infrastructure", "OfficeScripter.Infrastructure\OfficeScripter.Infrastructure.csproj", "{E4802137-FBA8-4F9D-B863-41F4B19BC7FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.TimeSummary", "OfficeScripter.TimeSummary\OfficeScripter.TimeSummary.csproj", "{2CCC7909-764C-4582-8690-35EBAD74ED2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeScripter.TimeSummary", "OfficeScripter.TimeSummary\OfficeScripter.TimeSummary.csproj", "{2CCC7909-764C-4582-8690-35EBAD74ED2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeScripter.FunctionalTests", "OfficeScripter.FunctionalTests\OfficeScripter.FunctionalTests.csproj", "{35F5DBA7-BE30-4C2E-926D-73E54C9BDD95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{2CCC7909-764C-4582-8690-35EBAD74ED2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CCC7909-764C-4582-8690-35EBAD74ED2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CCC7909-764C-4582-8690-35EBAD74ED2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F5DBA7-BE30-4C2E-926D-73E54C9BDD95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F5DBA7-BE30-4C2E-926D-73E54C9BDD95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F5DBA7-BE30-4C2E-926D-73E54C9BDD95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F5DBA7-BE30-4C2E-926D-73E54C9BDD95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{56214938-72FC-4092-9F2B-58AEEE413229} = {79201D74-FA10-427E-826F-DB7B53C072AD}
 		{CAAB5C23-A9C9-411D-8DBB-8E57C643EAF4} = {BDCF9F6E-0D24-4118-969D-642B4BCDDC13}
 		{E4802137-FBA8-4F9D-B863-41F4B19BC7FA} = {BDCF9F6E-0D24-4118-969D-642B4BCDDC13}
+		{35F5DBA7-BE30-4C2E-926D-73E54C9BDD95} = {7DA0458B-FC7A-41ED-8A78-C8FFFD395D19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0B42883-0749-40F6-B678-E6584FFFA662}
