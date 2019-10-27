@@ -1,6 +1,7 @@
 ﻿using Ganss.Excel;
 using Microsoft.Extensions.DependencyInjection;
 using OfficeScripter.Abstractions.TimeSummary;
+using OfficeScripter.Application.TimeSummary;
 using OfficeScripter.Infrastructure.ExcelMapping.Configuration;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace OfficeScripter.Infrastructure.ExcelMapping.Extensions
 
             services.AddSingleton<ExcelMapperConfiguration>();
 
+            services.AddTransient<ITimeSummary, TimeSummaryInteractor>();
             return services;
         }
     }

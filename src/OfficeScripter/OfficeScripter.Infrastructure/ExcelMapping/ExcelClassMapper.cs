@@ -2,6 +2,7 @@
 using OfficeScripter.Abstractions.TimeSummary;
 using OfficeScripter.Infrastructure.ExcelMapping.Configuration;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
@@ -27,14 +28,26 @@ namespace OfficeScripter.Infrastructure.ExcelMapping
 
             return mapper.Fetch<T>();
         }
-
         public IEnumerable<T> ReadRows<T>(string path) where T: new()
         {
-            using var fileStream = File.OpenRead(path);
+            using var fileStream = _fs.File.OpenRead(path);
 
             return ReadRows<T>(fileStream);
-            
         }
+
+        public void WriteRows<T>(string path, IEnumerable<T> rows,string sheetName = "summary")
+        {
+            var mapper = new ExcelMapper();
+            if (!_fs.File.Exists(path))
+            {
+               _fs.File.Create(path).Close();
+               
+            }
+            _mapperConfiguration.ProvideConfiguration(mapper);
+
+            mapper.Save(path,rows,sheetName, xlsx: true);
+        }
+
         
     }
 }

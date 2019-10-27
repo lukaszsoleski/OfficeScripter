@@ -10,6 +10,7 @@ namespace OfficeScripter.Application.TimeSummary
 {
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Options;
     using OfficeScripter.Domain.TimeSummary;
     using System.Linq;
 
@@ -18,10 +19,10 @@ namespace OfficeScripter.Application.TimeSummary
         private readonly ILogger<TimeSummaryInteractor> logger;
         private readonly TimeSummaryConfig configuration;
 
-        public TimeSummaryInteractor(ILogger<TimeSummaryInteractor> logger, TimeSummaryConfig configuration) 
+        public TimeSummaryInteractor(ILogger<TimeSummaryInteractor> logger, IOptionsMonitor<TimeSummaryConfig> options) 
         {
             this.logger = logger;
-            this.configuration = configuration;
+            this.configuration = options.CurrentValue;
         }
         #region GetTimeSummary
         /// <summary>
@@ -105,22 +106,23 @@ namespace OfficeScripter.Application.TimeSummary
            
             if (tsEvents.Count != 1)
             {
-                logger.LogCritical($"Expected single event of type {eventType} but got {tsEvents.Count}.");
+                if(tsEvents.Count > 1)
+                    logger.LogCritical($"Expected single event of type {eventType} but got {tsEvents.Count}.");
                 return null;
             }
             return tsEvents.Single();
         }
         #endregion
 
-        public Dictionary<DateTime, TimeSpan> GetDailySummary(IEnumerable<TimeSummaryEvent> events, ITimePeriod timePeriod)
+        public IEnumerable<DayTimeSummary> GetDailySummary(IEnumerable<TimeSummaryEvent> events, ITimePeriod timePeriod)
         {
-            var dailySummary = new Dictionary<DateTime, TimeSpan>();
+            var dailySummary = new List<DayTimeSummary>();
             
             foreach (var dayEvents in GetDailyEvents(events, timePeriod))
             {
                 var daySummary = SumDayEvents(dayEvents.Value);
                
-                dailySummary.Add(dayEvents.Key, daySummary);
+                dailySummary.Add(new DayTimeSummary(dayEvents.Key, daySummary));
             }
             return dailySummary;
         }

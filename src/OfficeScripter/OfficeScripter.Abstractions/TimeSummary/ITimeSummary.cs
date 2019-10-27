@@ -1,8 +1,5 @@
-﻿using OfficeScripter.Domain;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace OfficeScripter.Abstractions.TimeSummary
 {
@@ -13,6 +10,6 @@ namespace OfficeScripter.Abstractions.TimeSummary
       int Goal(ITimeBlock timePeriod);
 
       TimeSpan GetTimeSummary(IEnumerable<TimeSummaryEvent> events, ITimePeriod timePeriod);
-      Dictionary<DateTime, TimeSpan> GetDailySummary(IEnumerable<TimeSummaryEvent> events, ITimePeriod timePeriod);
+      IEnumerable<DayTimeSummary> GetDailySummary(IEnumerable<TimeSummaryEvent> events, ITimePeriod timePeriod);
     }
 }

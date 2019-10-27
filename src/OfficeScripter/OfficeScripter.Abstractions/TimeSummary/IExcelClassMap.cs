@@ -10,5 +10,6 @@ namespace OfficeScripter.Abstractions.TimeSummary
     {
         public IEnumerable<T> ReadRows<T>(Stream stream) where T : new();
         public IEnumerable<T> ReadRows<T>(string path) where T: new();
+        void WriteRows<T>(string path, IEnumerable<T> rows, string sheetName = "summary");
     }
 }

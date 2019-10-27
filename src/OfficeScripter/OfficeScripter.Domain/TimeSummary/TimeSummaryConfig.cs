@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 
 namespace OfficeScripter.Domain.TimeSummary
 {
     public class TimeSummaryConfig
     {
-      
+
         public TimeSpan EnLessonTime { get; set; }
 
         public string WorkStartName { get; set; }
@@ -15,8 +13,6 @@ namespace OfficeScripter.Domain.TimeSummary
         public string WorkBreakStartName { get; set; }
         public string WorkBreakEndName { get; set; }
         public string EnLessonName { get; set; }
-
-        public string DateTimeFormat { get; set; }
 
         public string ProjectHeaderName { get; set; }
         public string EventHeaderName { get; set; }
@@ -41,14 +37,14 @@ namespace OfficeScripter.Domain.TimeSummary
         public ProjectTypeEnum ParseProjectType(string projectName)
         {
             ProjectTypeEnum project = ProjectTypeEnum.Unknown;
-            if (projectName == EnLessonName) 
+            if (projectName == EnLessonName)
                 project = ProjectTypeEnum.EnglishLesson;
             return project;
         }
-
-        public DateTime ConvertToDate(string dateStr)
+        public DateTime ConvertToDate(object cellVal)
         {
-            return DateTime.ParseExact(dateStr, DateTimeFormat, CultureInfo.InvariantCulture);
+            if (cellVal == null) return DateTime.MinValue;
+            return (DateTime)cellVal;
         }
 
     }

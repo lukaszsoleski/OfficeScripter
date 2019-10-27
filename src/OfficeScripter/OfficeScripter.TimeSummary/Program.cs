@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using OfficeScripter.Domain.TimeSummary;
 using OfficeScripter.Infrastructure.ExcelMapping.Extensions;
 using System;
+using System.Globalization;
 using System.IO;
 using System.IO.Abstractions;
 using System.Text;
@@ -28,7 +29,7 @@ namespace OfficeScripter.TimeSummary
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true,
+                .AddJsonFile("appsettings.json", optional: false,
                              reloadOnChange: true);
             return builder.Build();
         }
@@ -39,9 +40,8 @@ namespace OfficeScripter.TimeSummary
             services.AddTransient<Startup>();
 
             var config = LoadConfiguration();
-
             services.Configure<TimeSummaryConfig>(config.GetSection("TimeSummary"));
-            
+
             AddLogging(services, config);
 
             AddApplicationServices(services);
