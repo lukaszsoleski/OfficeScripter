@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoBogus.Moq" Version="2.7.3" />
+    <PackageReference Include="Bogus" Version="28.4.1" />
+    <PackageReference Include="FluentAssertions" Version="5.9.0" />
+    <PackageReference Include="Moq" Version="4.13.1" />
+    <PackageReference Include="Moq.AutoMock" Version="1.2.0.122-pre" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OfficeScripter.Abstractions\OfficeScripter.Abstractions.csproj" />
+    <ProjectReference Include="..\OfficeScripter.Application\OfficeScripter.Application.csproj" />
+    <ProjectReference Include="..\OfficeScripter.Domain\OfficeScripter.Domain.csproj" />
+    <ProjectReference Include="..\OfficeScripter.Infrastructure\OfficeScripter.Infrastructure.csproj" />
+    <ProjectReference Include="..\OfficeScripter.Persistance\OfficeScripter.Persistance.csproj" />
+  </ItemGroup>
+
+</Project>

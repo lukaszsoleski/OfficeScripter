@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExcelMapper" Version="5.0.105" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.0.0" />
+    <PackageReference Include="System.IO.Abstractions" Version="7.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OfficeScripter.Abstractions\OfficeScripter.Abstractions.csproj" />
+    <ProjectReference Include="..\OfficeScripter.Application\OfficeScripter.Application.csproj" />
+    <ProjectReference Include="..\OfficeScripter.Domain\OfficeScripter.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
