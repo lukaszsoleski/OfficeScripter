@@ -34,13 +34,37 @@ namespace OfficeScripter.TimeSummary
             InformAboutDefaultPath(defaultPath);
 
             var data = _mapper.ReadRows<TimeSummaryEvent>(defaultPath).ToList();
-            var timeRange = new TimeRange(new DateTime(2019, 9, 1), new DateTime(2019, 9, 20));
+            var lastMonth = DateTime.Now.Month - 1;
+            TimeRange timeRange = GetLastMonth();
             var summary = _timeSummary.GetTimeSummary(data, timeRange);
             var dailySummary = _timeSummary.GetDailySummary(data, timeRange)
                 .OrderBy(x => x.Date).ToList();
             var resultPath = defaultPath
                 .Replace(Path.GetFileNameWithoutExtension(defaultPath), "Podsumowanie");
             _mapper.WriteRows(resultPath, dailySummary);
+        }
+
+        private static TimeRange GetLastMonth()
+        {
+            
+            var currMonth = DateTime.Now.Month;
+
+            int lastMonth;
+            int lastMonthYear;
+            // new year
+            if(currMonth == 1)
+            {
+                lastMonth = 12;
+                lastMonthYear = DateTime.Now.Year - 1;
+            }
+            else
+            {
+                lastMonth = currMonth - 1;
+                lastMonthYear = DateTime.Now.Year;
+            }
+
+            return new TimeRange(
+                new DateTime(lastMonthYear,lastMonth, 1), new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1));
         }
 
         private void InformAboutDefaultPath(string defaultPath)
